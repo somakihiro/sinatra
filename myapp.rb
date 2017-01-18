@@ -1,8 +1,18 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+before do
+  @author = 'somakihiro'
+end
+helpers do
+  def link(msg)
+    "hello, #{msg}"
+  end
+end
+
 get '/' do
-  @msg = 'hello'
+  @title = 'main'
+  @msg = link(@author)
   haml :index
 end
 
