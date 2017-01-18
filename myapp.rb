@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/' do
+  @msg = 'hello'
   haml :index
 end
 
