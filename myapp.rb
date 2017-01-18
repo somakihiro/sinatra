@@ -1,7 +1,8 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 get '/' do
-  'Hello world!'
+  haml :index
 end
 
 # get '/hello/:name' do
@@ -30,4 +31,16 @@ end
 
 get 'posts.?:format?' do
   '"GET /posts" と "GET /posts.json", "GET /posts.xml" の拡張子などにマッチ'
+end
+
+get '/', :host_name => /^admin\./ do
+  "Adminエリア"
+end
+
+get '/', :provides => 'html' do
+  haml :index
+end
+
+get '/', :provides => ['rss', 'atom', 'xml'] do
+  builder :feed
 end
