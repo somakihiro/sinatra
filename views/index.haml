@@ -3,7 +3,6 @@
   %head
     %meta{ charset: 'utf-8' }
   %body
-    %ul
-      - @comments.each do |comment|
-          %li { data-id: comment.id }
-            = comment.body
+    - @comments.each do |comment|
+      = comment.id
+      = comment.body
