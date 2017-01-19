@@ -6,3 +6,8 @@
     - @comments.each do |comment|
       = comment.id
       = comment.body
+    %h2
+      新規投稿
+    %form{:action => '/create', :method => 'post'}
+      %input{:type => 'text', :name => 'body'}
+      %input{:type => 'submit', :value => '投稿'}
