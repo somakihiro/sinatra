@@ -21,3 +21,9 @@ post '/create' do
   redirect '/'
   haml :index
 end
+
+post '/delete' do
+  Comment.find(params[:id]).destroy
+  redirect '/'
+  haml :index
+end
