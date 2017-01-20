@@ -1,0 +1,7 @@
+%h2
+  新規登録
+%form{:action => '/create/user', :method => 'post'}
+  %input{:type => 'text', :name => 'name', :placeholder => '名前'}
+  %input{:type => 'text', :name => 'email', :placeholder => 'メールアドレス'}
+  %input{:type => 'password', :name => 'password', :placeholder => 'パスワード'}
+  %input{:type => 'submit', :value => '登録'}
