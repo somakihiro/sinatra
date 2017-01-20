@@ -20,19 +20,16 @@ end
 post '/create' do
   Comment.create({:body => params[:body]})
   redirect '/'
-  haml :comments_index
 end
 
 post '/delete' do
   Comment.find(params[:id]).destroy
   redirect '/'
-  haml :comments_index
 end
 
 # Userのルーティング
 get '/new/user' do
   @user = User.new
-  p @user
   haml :user_new
 end
 
@@ -42,10 +39,6 @@ get '/users' do
 end
 
 post '/create/user' do
-  p params[:name]
-  p params[:email]
-  p params[:password]
   User.create({:name => params[:name], :email => params[:email], :password => params[:password]})
   redirect '/users'
-  haml :users
 end
