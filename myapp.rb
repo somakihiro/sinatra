@@ -39,6 +39,10 @@ get '/users' do
 end
 
 post '/create/user' do
+  # TODO: バリデーションはもっと調べてからしっかり実装する
+  if params[:name] == '' || params[:email] == '' || params[:password] == ''
+    redirect '/new/user'
+  end
   User.create({:name => params[:name], :email => params[:email], :password => params[:password]})
   redirect '/users'
 end
